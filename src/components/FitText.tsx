@@ -17,7 +17,7 @@ interface States {
 }
 
 class FitText extends React.Component<Props, States> {
-    static defaultProps = {
+    public static defaultProps = {
         compressor: 1.0,
         debounce: 100,
         defaultFontSize: 'inherit',
@@ -25,14 +25,12 @@ class FitText extends React.Component<Props, States> {
         maxFontSize: Number.POSITIVE_INFINITY,
     };
 
+    public state: Readonly<States> = {
+        fontSize: this.props.defaultFontSize,
+    };
+
     constructor(props: Props) {
         super(props);
-
-        let defaultFontSize = props.defaultFontSize;
-        if (typeof props.defaultFontSize === 'number') {
-            defaultFontSize = `${props.defaultFontSize}px`;
-        }
-        this.setState({ fontSize: defaultFontSize });
 
         this._onBodyResize = this._onBodyResize.bind(this);
         this._parentNode = null;
@@ -95,7 +93,7 @@ class FitText extends React.Component<Props, States> {
         }
     }
 
-    render() {
+    public render() {
         return (
             <div ref={(el) => (this.element = el)} style={{ fontSize: this.state.fontSize }}>
                 {this.props.children}

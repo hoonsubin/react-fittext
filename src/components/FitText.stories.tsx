@@ -1,11 +1,12 @@
 import React from 'react';
 import FitText from './FitText';
+import './story-fonts.css';
 
 export default { title: 'Fit Text' };
 
 export const welcome: React.FC = () => {
     return (
-        <div style={{ margin: '-5vw', padding: '5vw', background: 'black' }}>
+        <div style={{ margin: '-5vw', padding: '5vw', background: 'white' }}>
             <FitText compressor={0.5}>Saint</FitText>
             <FitText>Saint-Sébastien – Froissar</FitText>
             <FitText compressor={2}>Saint-Sébastien – Froissar</FitText>

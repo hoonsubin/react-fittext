@@ -1,2 +1,2 @@
-import MyComponent from './components/MyComponent';
-export { MyComponent };
+import FitText from './components/FitText';
+export default FitText;
